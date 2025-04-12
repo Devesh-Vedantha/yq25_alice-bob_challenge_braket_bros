@@ -12,6 +12,7 @@ def read_pickle(file_path):
     except FileNotFoundError:
         print(f"File not found: {file_path}")
         return None
+# example usage
 
 # add gaussian noise
 def add_gaussian_noise(Z, sigma=0.1):
@@ -19,4 +20,5 @@ def add_gaussian_noise(Z, sigma=0.1):
     wigner_noisy = Z + noise
     # print(wigner_noisy) - used for testing
     return wigner_noisy
+# example usage
 
