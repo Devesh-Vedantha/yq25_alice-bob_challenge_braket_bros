@@ -21,9 +21,10 @@ if os.path.exists(file_path):
     
 # add gaussian noise
 def add_gaussian_noise(Z, sigma=0.1):
+    # note Z = data[2]
     noise = np.random.normal(0, sigma, Z.shape)
     wigner_noisy = Z + noise
     # print(wigner_noisy) - used for testing
     return wigner_noisy
 # example usage
-
+wigner_noisy = add_gaussian_noise(Z, sigma=0.1)
