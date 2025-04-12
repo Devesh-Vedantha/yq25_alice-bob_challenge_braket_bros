@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # read given input .pickle file 
-# method 1
+# function 1
 def read_pickle(file_path):
     try:
         with open(file_path, 'rb') as file:
@@ -15,7 +15,7 @@ def read_pickle(file_path):
         print(f"File not found: {file_path}")
         return None
 
-# method 1.5
+# function 1.5
 def load_data_from_pickle(file_path): # MUST BE USED IMMEDIATELY AFTER READ_PICKLE, the only thing we care about is Z
     if os.path.exists(file_path):
         data = read_pickle(file_path)
@@ -36,7 +36,7 @@ def add_gaussian_noise(Z, sigma=0.1):
 # example usage
 wigner_noisy = add_gaussian_noise(Z, sigma=0.1)
 
-# method 2
+# function 2
 def visualize_item2_if_possible(data):
     if isinstance(data, (list, tuple)) and len(data) > 2:
         item2 = data[2]
