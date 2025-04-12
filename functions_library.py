@@ -23,8 +23,8 @@ def load_data_from_pickle(file_path): # MUST BE USED IMMEDIATELY AFTER READ_PICK
         print(f"Z: {Z}")
         return Z
 
-file_path = "ADD ABSOLUTE_FILE_PATH HERE" # change based on desired file
-Z = load_data_from_pickle(file_path)
+# file_path = "ADD ABSOLUTE_FILE_PATH HERE" # change based on desired file
+# Z = load_data_from_pickle(file_path)
     
 # add gaussian noise
 def add_gaussian_noise(Z, sigma=0.1):
@@ -35,6 +35,26 @@ def add_gaussian_noise(Z, sigma=0.1):
     return wigner_noisy
 # example usage
 wigner_noisy = add_gaussian_noise(Z, sigma=0.1)
+
+# function 2.5 - necessary function for visualize
+def describe_data(name, data):
+    print(f"\n{name} — type: {type(data)}")
+
+    if isinstance(data, (list, tuple)):
+        print(f"  ➤ container with {len(data)} elements")
+        
+        for i, item in enumerate(data):
+            print(f"    - Item {i}: type={type(item)}, shape={np.shape(item)}")
+    elif isinstance(data, dict):
+        print(f"  ➤ dictionary with {len(data)} keys")
+        for key, value in data.items():
+            print(f"    - Key: {key}, shape: {np.shape(value)}, type: {type(value)}")
+        plt.plot(data["x"], data["y"])
+        plt.show()
+    elif hasattr(data, "shape"):
+        print(f"  ➤ array-like: shape={data.shape}, dtype={data.dtype}")
+    else:
+        print(f"  ➤ unknown structure")
 
 # function 2
 def visualize_item2_if_possible(data):
@@ -69,23 +89,3 @@ for subfolder in ["experimental", "synthetic"]:
             if data is not None:
                 describe_data(filename, data)
                 visualize_item2_if_possible(data)
-
-# function 2.5 - necessary function for visualize
-def describe_data(name, data):
-    print(f"\n{name} — type: {type(data)}")
-
-    if isinstance(data, (list, tuple)):
-        print(f"  ➤ container with {len(data)} elements")
-        
-        for i, item in enumerate(data):
-            print(f"    - Item {i}: type={type(item)}, shape={np.shape(item)}")
-    elif isinstance(data, dict):
-        print(f"  ➤ dictionary with {len(data)} keys")
-        for key, value in data.items():
-            print(f"    - Key: {key}, shape: {np.shape(value)}, type: {type(value)}")
-        plt.plot(data["x"], data["y"])
-        plt.show()
-    elif hasattr(data, "shape"):
-        print(f"  ➤ array-like: shape={data.shape}, dtype={data.dtype}")
-    else:
-        print(f"  ➤ unknown structure")
