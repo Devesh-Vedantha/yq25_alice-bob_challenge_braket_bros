@@ -2,6 +2,7 @@
 import pickle
 import os
 import numpy as np
+import matplotlib.pyplot as plt
 
 # read given input .pickle file 
 # method 1
@@ -34,3 +35,38 @@ def add_gaussian_noise(Z, sigma=0.1):
     return wigner_noisy
 # example usage
 wigner_noisy = add_gaussian_noise(Z, sigma=0.1)
+
+# method 2
+def visualize_item2_if_possible(data):
+    if isinstance(data, (list, tuple)) and len(data) > 2:
+        item2 = data[2]
+        if isinstance(item2, np.ndarray) and item2.ndim == 2:
+            plt.figure(figsize=(6, 5))
+            plt.contourf(item2, 100, cmap='RdBu_r')
+            plt.colorbar()
+            plt.title("Visualization of item 2")
+            plt.xlabel("Axis 1")
+            plt.ylabel("Axis 0")
+            plt.tight_layout()
+            plt.show()
+        else:
+            print("item 2 is not a 2D array, cannot visualize as contour.")
+    else:
+        print("Data does not have an item 2.")
+
+
+base_path = "" # change to own path
+
+for subfolder in ["experimental", "synthetic"]:
+    dir_path = os.path.join(base_path, subfolder)
+    if not os.path.isdir(dir_path):
+        continue
+
+    for filename in sorted(os.listdir(dir_path)):
+        if filename.endswith(".pickle"):
+            file_path = os.path.join(dir_path, filename)
+            data = read_pickle(file_path)
+            if data is not None:
+                describe_data(filename, data)
+                visualize_item2_if_possible(data)
+return data
