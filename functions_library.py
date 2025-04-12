@@ -65,3 +65,9 @@ def visualize_Z_if_possible(data): # changed from item2 to Z to standardize
             print("Z is not a 2D array, cannot visualize as contour.")
     else:
         print("Data does not have Z.")
+
+# function 5 - add gaussian elimination
+def add_gaussian_elimination(Z, sigma=0.1):
+    noise = np.random.normal(0, sigma, Z.shape)
+    w_noisy = Z + noise
+    return w_noisy
