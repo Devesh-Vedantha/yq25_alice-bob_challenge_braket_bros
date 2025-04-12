@@ -21,7 +21,7 @@ This formula may look intimidating, so let’s **break it down step by step**:
 
 ### What Does the Wigner Function Represent?
 
-In classical mechanics, the state of a system is fully described by a **probability distribution** over phase space. However, in quantum mechanics, Heisenberg’s uncertainty principle prevents us from simultaneously knowing both position and momentum with perfect precision. The Wigner function provides a way to **visualize quantum states in phase space**, but it is not a true probability distribution because it can take **negative values**, which have no classical interpretation.
+In classical mechanics, the state of a system is fully described by a by a **point** in phase space. However, in quantum mechanics, Heisenberg’s uncertainty principle prevents us from simultaneously knowing both position and momentum with perfect precision. The Wigner function provides a way to **visualize quantum states in phase space**, but it is not a true probability distribution because it can take **negative values**, which have no classical interpretation.
 
 - Positive regions of $W_\rho(x,p)$ indicate where the quantum state is more likely to be found.
 - **Negative regions** indicate quantum interference effects.
