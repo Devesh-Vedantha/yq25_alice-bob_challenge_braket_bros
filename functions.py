@@ -13,7 +13,12 @@ def read_pickle(file_path):
         print(f"File not found: {file_path}")
         return None
 # example usage
+file_path = "ADD ABSOLUTE_FILE_PATH HERE" # change based on desired file
 
+if os.path.exists(file_path):
+    data = read_pickle(file_path)
+    print(data)
+    
 # add gaussian noise
 def add_gaussian_noise(Z, sigma=0.1):
     noise = np.random.normal(0, sigma, Z.shape)
