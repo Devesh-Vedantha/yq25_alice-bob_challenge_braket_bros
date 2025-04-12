@@ -1,3 +1,8 @@
+# necessary imports - can be removed from this file
+import pickle
+import os
+import numpy as np
+
 # read given input .pickle file 
 def read_pickle(file_path):
     try:
