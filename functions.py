@@ -4,6 +4,7 @@ import os
 import numpy as np
 
 # read given input .pickle file 
+# method 1
 def read_pickle(file_path):
     try:
         with open(file_path, 'rb') as file:
@@ -12,12 +13,17 @@ def read_pickle(file_path):
     except FileNotFoundError:
         print(f"File not found: {file_path}")
         return None
-# example usage
-file_path = "ADD ABSOLUTE_FILE_PATH HERE" # change based on desired file
 
-if os.path.exists(file_path):
-    data = read_pickle(file_path)
-    print(data)
+# method 1.5
+def load_data_from_pickle(file_path): # MUST BE USED IMMEDIATELY AFTER READ_PICKLE, the only thing we care about is Z
+    if os.path.exists(file_path):
+        data = read_pickle(file_path)
+        Z = data[2]
+        print(f"Z: {Z}")
+        return Z
+
+file_path = "ADD ABSOLUTE_FILE_PATH HERE" # change based on desired file
+Z = load_data_from_pickle(file_path)
     
 # add gaussian noise
 def add_gaussian_noise(Z, sigma=0.1):
