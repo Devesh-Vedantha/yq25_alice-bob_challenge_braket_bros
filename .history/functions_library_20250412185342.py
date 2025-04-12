@@ -23,8 +23,8 @@ def load_data_from_pickle(file_path): # MUST BE USED IMMEDIATELY AFTER READ_PICK
         print(f"Z: {Z}")
         return Z
 
-file_path = "ADD ABSOLUTE_FILE_PATH HERE" # change based on desired file
-Z = load_data_from_pickle(file_path)
+# file_path = "ADD ABSOLUTE_FILE_PATH HERE" # change based on desired file
+# Z = load_data_from_pickle(file_path)
     
 # add gaussian noise
 def add_gaussian_noise(Z, sigma=0.1):
