@@ -1,4 +1,4 @@
-from functions_lib import *
+from functions_library import *
 import dynamiqs as dq
 from scipy.integrate import dblquad
 from scipy.ndimage import gaussian_filter
